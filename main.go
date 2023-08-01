@@ -3,7 +3,12 @@ package main
 import (
 	"flag"
 	"fmt"
+	"log"
+	"os"
+
 	"github.com/eatmoreapple/openwechat"
+	"github.com/xinyangli/matrix-wechat/internal/config"
+	"gopkg.in/yaml.v3"
 )
 
 var homeserver = flag.String("homeserver", "", "Matrix homeserver")
@@ -13,6 +18,7 @@ var database = flag.String("database", "mautrix-example.db", "SQLite database pa
 var debug = flag.Bool("debug", false, "Enable debug logs")
 
 func main() {
+
 	bot := openwechat.DefaultBot(openwechat.Desktop) // 桌面模式
 
 	// 注册消息处理函数
